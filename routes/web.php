@@ -1,11 +1,11 @@
 <?php
 
 use App\Http\Controllers\ProfileController;
+use App\Livewire\Home;
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', Home::class)->name('home')
+    ->middleware(['auth', 'verified'])->name('dashboard');;
 
 Route::get('/dashboard', function () {
     return view('dashboard');
